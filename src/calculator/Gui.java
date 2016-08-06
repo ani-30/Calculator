@@ -353,7 +353,7 @@ int z;
         public void keyPressed(KeyEvent e) {
             if(e.getKeyCode()>=48 && e.getKeyCode()<=57) {
                 z=e.getKeyCode()-48;
-                if(z==1){
+                if(z==1 ){
               if(opChosen==false){
                   if(str1==null){
                       str1="1";}
