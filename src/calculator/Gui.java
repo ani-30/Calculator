@@ -20,7 +20,7 @@ Gui()
      answerfield=new JTextField(null,22);
      Font font=new Font("Courier",Font.BOLD,16);
      answerfield.setFont(font);
-     answerfield.setEditable(false);
+     answerfield.setEditable(true);
      pow=new JButton("^");
       perc=new JButton("%");
        sqrt=new JButton("√");
@@ -71,7 +71,9 @@ Gui()
     inv.setPreferredSize(dm);
     bs.setPreferredSize(dm);
     Numbers n=new Numbers();
-    Calculation c=new Calculation();
+    Calculation c =new Calculation();
+    answerfield.addKeyListener(n);
+    answerfield.addKeyListener(c);
     one.addActionListener(n);
     two.addActionListener(n);
     three.addActionListener(n);
@@ -142,7 +144,7 @@ Gui()
 
    this.setContentPane(contentPanel);
     }
-private class Numbers implements ActionListener{
+private class Numbers implements ActionListener,KeyListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -339,10 +341,216 @@ else
    else
     answerfield.setText(spc1+str1+operation+spc2+str2);}
 }
-}}
+}
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            
+        }
+int z;
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if(e.getKeyCode()>=48 && e.getKeyCode()<=57) {
+                z=e.getKeyCode()-48;
+                if(z==1){
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="1";}
+                  else{
+                      str1=str1+"1";}}
+                  else{
+                          if(str2==null)
+                              str2="1";
+                          else
+                              str2=str2+"1";
+                                      }
+                }
+                   if(z==2){
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="2";}
+                  else{
+                      str1=str1+"2";}}
+                  else{
+                          if(str2==null)
+                              str2="2";
+                          else
+                              str2=str2+"2";
+                                      }
+                }
+                      if(z==3){
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="3";}
+                  else{
+                      str1=str1+"3";}}
+                  else{
+                          if(str2==null)
+                              str2="3";
+                          else
+                              str2=str2+"3";
+                                      }
+                }
+                         if(z==4){
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="4";}
+                  else{
+                      str1=str1+"4";}}
+                  else{
+                          if(str2==null)
+                              str2="4";
+                          else
+                              str2=str2+"4";
+                                      }
+                }
+                            if(z==5){
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="5";}
+                  else{
+                      str1=str1+"5";}}
+                  else{
+                          if(str2==null)
+                              str2="5";
+                          else
+                              str2=str2+"5";
+                                      }
+                }
+                   if(z==6){
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="6";}
+                  else{
+                      str1=str1+"6";}}
+                  else{
+                          if(str2==null)
+                              str2="6";
+                          else
+                              str2=str2+"6";
+                                      }
+                }
+                      if(z==7){
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="7";}
+                  else{
+                      str1=str1+"7";}}
+                  else{
+                          if(str2==null)
+                              str2="7";
+                          else
+                              str2=str2+"7";
+                                      }
+                }
+                         if(z==8){
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="8";}
+                  else{
+                      str1=str1+"8";}}
+                  else{
+                          if(str2==null)
+                              str2="8";
+                          else
+                              str2=str2+"8";
+                                      }
+                }
+                            if(z==9){
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="9";}
+                  else{
+                      str1=str1+"9";}}
+                  else{
+                          if(str2==null)
+                              str2="9";
+                          else
+                              str2=str2+"9";
+                                      }
+                }
+                               if(z==0){
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="0";}
+                  else{
+                      str1=str1+"0";}}
+                  else{
+                          if(str2==null)
+                              str2="0";
+                          else
+                              str2=str2+"0";
+                                      }
+                }
+                              
+            }
+            if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE)
+            {
+                 if(opChosen==false){
+                  if(str1!=null)
+                  {str1=str1.substring(0,str1.length()-1);
+                                }}
+                  else{
+                          if(str2!=null)
+                                str2=str2.substring(0,str2.length()-1);
+                           
+                                      }
+            }
+               if(e.getKeyCode()==KeyEvent.VK_PERIOD)
+               {
+                  
+              if(opChosen==false){
+                  if(str1==null){
+                      str1="0.0";}
+                  else{if(str1.contains("."))
+                      System.out.println("alrady decimal point contained");
+                      else
+                      str1=str1+".";}}
+                  else{
+                          if(str2==null)
+                              str2="0.0";
+                          else
+                              if(str2.contains("."))
+                      System.out.println("alrady decimal point contained");
+                      else
+                      str2=str2+".";
+                                      }
+                   
+               }
+                      
+if(opChosen==false){
+    if(pn1==true)
+        answerfield.setText(spc1+str1+"(-)");
+    else
+answerfield.setText(spc1+str1);
+}
+else
+{
+    if(pn2==true)
+    {if(pn1==true)
+        answerfield.setText(spc1+str1+"(-)"+operation+spc2+str2+"(-)");
+    else
+        answerfield.setText(spc1+str1+operation+spc2+str2+"(-)");}
+   else if(inv1==true)
+         answerfield.setText(spc1+str1+"(1/x)"+operation+spc2+str2);
+    else
+   {if(pn1==true)
+       answerfield.setText(spc1+str1+"(-)"+operation+spc2+str2);
+   else
+    answerfield.setText(spc1+str1+operation+spc2+str2);}
+}
+            
+}
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    }
           
            
-private class Calculation implements ActionListener{
+private class Calculation implements ActionListener,KeyListener{
     public void equals()
     {
         if(str1!=null && str2==null)
@@ -621,6 +829,145 @@ private class Calculation implements ActionListener{
   
                 }
                   }
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+           if(e.getKeyCode()==KeyEvent.VK_ESCAPE)
+           {
+              str1=null;
+            str2=null;
+            opChosen=false;
+            operation=' ';
+              inv1=false;
+                    inv2=false;
+                    sq1=false;
+                    sq2=false;
+                    perc1=false;
+                     spc1=' ';
+                    spc2=' ';
+                     pn1=false;
+                    pn2=false;
+            answerfield.setText(null);
+            
+           }
+           if(e.getKeyCode()==KeyEvent.VK_ADD)
+           {
+                  if(str1==null  )
+                    System.out.println("Choose the nos first");
+                else if(str1!=null && str2==null){
+                    opChosen=true;
+                     operation='+';
+                     if(pn1==true)
+                          answerfield.setText(spc1+str1+"(-)"+operation);
+                   else if(inv1==true)
+                  answerfield.setText(spc1+str1+"(1/x)"+operation);
+                else
+                        answerfield.setText(spc1+str1+operation);}
+                    else if(str1!=null && str2!=null)
+                    {
+                        equals();
+                         operation='+';
+                        str1=Double.toString(answer);
+                      
+                        answerfield.setText(str1+operation);
+                        str2=null;
+                    }
+           }
+           if(e.getKeyCode()==KeyEvent.VK_SUBTRACT)
+           {
+                if(str1==null  )
+                    System.out.println("Choose the nos first");
+                else if(str1!=null && str2==null){
+                     operation='-';
+                    opChosen=true;
+                     if(pn1==true)
+                          answerfield.setText(spc1+str1+"(-)"+operation);
+                   else if(inv1==true)
+                  answerfield.setText(spc1+str1+"(1/x)"+operation);
+                else
+                        answerfield.setText(spc1+str1+operation);}
+                   else if(str1!=null && str2!=null)
+                    {
+                        equals();
+                         operation='-';
+                        str1=Double.toString(answer);
+                        answerfield.setText(str1+operation);
+                        str2=null;
+                    } 
+           }
+             if(e.getKeyCode()==KeyEvent.VK_MULTIPLY)
+             {
+                   if(str1==null  )
+                    System.out.println("Choose the nos first");
+                else if(str1!=null && str2==null){
+                    opChosen=true;
+                    operation='*';
+                     if(pn1==true)
+                          answerfield.setText(spc1+str1+"(-)"+operation);
+                   else if(inv1==true)
+                  answerfield.setText(spc1+str1+"(1/x)"+operation);
+                else
+                        answerfield.setText(spc1+str1+operation);}
+                   
+                  
+              
+               else if(str1!=null && str2!=null)
+                    {
+                        equals();
+                         operation='*';
+                        str1=Double.toString(answer);
+                        answerfield.setText(str1+operation);
+                        str2=null;
+                    } 
+             }
+             if(e.getKeyCode()==KeyEvent.VK_DIVIDE)
+             {
+                        if(str1==null  )
+                    System.out.println("Choose the nos first");
+                else if(str1!=null && str2==null){
+                    opChosen=true;
+                    operation='/';
+                    
+                      if(pn1==true)
+                          answerfield.setText(spc1+str1+"(-)"+operation);
+                   else if(inv1==true)
+                  answerfield.setText(spc1+str1+"(1/x)"+operation);
+                else
+                        answerfield.setText(spc1+str1+operation);}
+         else if(str1!=null && str2!=null)
+                    { 
+                        equals();
+                         operation='/';
+                        str1=Double.toString(answer);
+                        answerfield.setText(str1+operation);
+                        str2=null;
+                    }
+             }
+             if(e.getKeyCode()==KeyEvent.VK_ENTER)
+             {
+                   equals();
+                   
+                    sq1=false;
+                    spc1=' ';
+                    spc2=' ';
+                    perc1=false;
+                    sq2=false;
+                      inv1=false;
+                    inv2=false;
+                    str1=Double.toString(answer);
+                    str2=null;
+             }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     
 }
 }
