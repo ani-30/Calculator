@@ -351,9 +351,9 @@ else
 int z;
         @Override
         public void keyPressed(KeyEvent e) {
-            if(e.getKeyCode()>=48 && e.getKeyCode()<=57) {
+            if(e.getKeyCode()>=48 && e.getKeyCode()<=57 || e.getKeyCode()>=96 && e.getKeyCode()<=105)  {
                 z=e.getKeyCode()-48;
-                if(z==1 ){
+                if(z==1 || z==49 ){
               if(opChosen==false){
                   if(str1==null){
                       str1="1";}
@@ -366,7 +366,7 @@ int z;
                               str2=str2+"1";
                                       }
                 }
-                   if(z==2){
+                   if(z==2 || z==50){
               if(opChosen==false){
                   if(str1==null){
                       str1="2";}
@@ -379,7 +379,7 @@ int z;
                               str2=str2+"2";
                                       }
                 }
-                      if(z==3){
+                      if(z==3 || z==51){
               if(opChosen==false){
                   if(str1==null){
                       str1="3";}
@@ -392,7 +392,7 @@ int z;
                               str2=str2+"3";
                                       }
                 }
-                         if(z==4){
+                         if(z==4 || z==52){
               if(opChosen==false){
                   if(str1==null){
                       str1="4";}
@@ -405,7 +405,7 @@ int z;
                               str2=str2+"4";
                                       }
                 }
-                            if(z==5){
+                            if(z==5 || z==53){
               if(opChosen==false){
                   if(str1==null){
                       str1="5";}
@@ -418,7 +418,7 @@ int z;
                               str2=str2+"5";
                                       }
                 }
-                   if(z==6){
+                   if(z==6 || z==54){
               if(opChosen==false){
                   if(str1==null){
                       str1="6";}
@@ -431,7 +431,7 @@ int z;
                               str2=str2+"6";
                                       }
                 }
-                      if(z==7){
+                      if(z==7 || z==55){
               if(opChosen==false){
                   if(str1==null){
                       str1="7";}
@@ -444,7 +444,7 @@ int z;
                               str2=str2+"7";
                                       }
                 }
-                         if(z==8){
+                         if(z==8 || z==56){
               if(opChosen==false){
                   if(str1==null){
                       str1="8";}
@@ -457,7 +457,7 @@ int z;
                               str2=str2+"8";
                                       }
                 }
-                            if(z==9){
+                            if(z==9 || z==57){
               if(opChosen==false){
                   if(str1==null){
                       str1="9";}
@@ -470,7 +470,7 @@ int z;
                               str2=str2+"9";
                                       }
                 }
-                               if(z==0){
+                               if(z==0 || z==48){
               if(opChosen==false){
                   if(str1==null){
                       str1="0";}
@@ -497,7 +497,7 @@ int z;
                            
                                       }
             }
-               if(e.getKeyCode()==KeyEvent.VK_PERIOD)
+               if(e.getKeyCode()==KeyEvent.VK_PERIOD || e.getKeyCode()==KeyEvent.VK_DECIMAL)
                {
                   
               if(opChosen==false){
@@ -855,7 +855,7 @@ private class Calculation implements ActionListener,KeyListener{
             answerfield.setText(null);
             
            }
-           if(e.getKeyCode()==KeyEvent.VK_ADD)
+           if(e.getKeyCode()==KeyEvent.VK_ADD || (e.getKeyCode()==KeyEvent.VK_SHIFT && e.getKeyCode()==KeyEvent.VK_EQUALS))
            {
                   if(str1==null  )
                     System.out.println("Choose the nos first");
