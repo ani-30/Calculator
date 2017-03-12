@@ -1,5 +1,4 @@
 package calculator;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -310,16 +309,61 @@ private class Numbers implements ActionListener,KeyListener{
               }
            if(src.equals(bs)){
               if(opChosen==false){
-                  if(str1!=null){str1=str1.substring(0,str1.length()-1);
+                  if(str1!=null)
+                  {
+                      if(inv1==false)
+                      {
+                 if (str1.length()==1)
+                                  str1=null;
+                              else
+                                str1=str1.substring(0,str1.length()-1);;}
+                  else
+                      {
+                          inv1=false;
+                      }}
+                  else
+                                {if(sq1==true)
+                                {
+                                    sq1=false;spc1=' ';
+                                        
+                                        }
+                             
                                 }}
                   else{
                           if(str2!=null)
-                                str2=str2.substring(0,str2.length()-1);
-                           
+                          {
+                              if(inv2==false)
+                              {
+                              if (str2.length()==1)
+                                  str2=null;
+                              else
+                                str2=str2.substring(0,str2.length()-1);}
+                          else
+                              {
+                                  inv2=false;
+                              }}
+                          else
+                          {
+                              if(sq2==true)
+                              {
+                                  sq2=false;
+                                  spc2=' ';
+                                  
+                              }
+                              else if(sq2==false && opChosen==true)
+                              {
+                              opChosen=false;
+                              operation=' ';
+                              }
+                              
+                          }
                                       }
               }
           
-          
+  if(str1==null)
+      str1="";
+  if(str2==null)
+      str2="";
 if(opChosen==false){
     if(pn1==true)
         answerfield.setText(spc1+str1+"(-)");
@@ -341,6 +385,12 @@ else
    else
     answerfield.setText(spc1+str1+operation+spc2+str2);}
 }
+if(str1=="")
+    str1=null;
+if(str2=="")
+    str2=null;
+
+
 }
 
         @Override
@@ -487,15 +537,57 @@ int z;
             }
             if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE)
             {
-                 if(opChosen==false){
+                    if(opChosen==false){
                   if(str1!=null)
-                  {str1=str1.substring(0,str1.length()-1);
+                  {
+                      if(inv1==false)
+                      {
+                 if (str1.length()==1)
+                                  str1=null;
+                              else
+                                str1=str1.substring(0,str1.length()-1);;}
+                  else
+                      {
+                          inv1=false;
+                      }}
+                  else
+                                {if(sq1==true)
+                                {
+                                    sq1=false;spc1=' ';
+                                        
+                                        }
+                             
                                 }}
                   else{
                           if(str2!=null)
-                                str2=str2.substring(0,str2.length()-1);
-                           
+                          {
+                              if(inv2==false)
+                              {
+                              if (str2.length()==1)
+                                  str2=null;
+                              else
+                                str2=str2.substring(0,str2.length()-1);}
+                          else
+                              {
+                                  inv2=false;
+                              }}
+                          else
+                          {
+                              if(sq2==true)
+                              {
+                                  sq2=false;
+                                  spc2=' ';
+                                  
+                              }
+                              else if(sq2==false && opChosen==true)
+                              {
+                              opChosen=false;
+                              operation=' ';
+                              }
+                              
+                          }
                                       }
+    
             }
                if(e.getKeyCode()==KeyEvent.VK_PERIOD || e.getKeyCode()==KeyEvent.VK_DECIMAL)
                {
@@ -518,7 +610,10 @@ int z;
                                       }
                    
                }
-                      
+  if(str1==null)
+      str1="";
+  if(str2==null)
+      str2="";                      
 if(opChosen==false){
     if(pn1==true)
         answerfield.setText(spc1+str1+"(-)");
@@ -540,7 +635,11 @@ else
    else
     answerfield.setText(spc1+str1+operation+spc2+str2);}
 }
-            
+            if(str1=="")
+    str1=null;
+if(str2=="")
+    str2=null;
+
 }
 
         @Override
@@ -826,6 +925,7 @@ private class Calculation implements ActionListener,KeyListener{
                     inv2=false;
                     str1=Double.toString(answer);
                     str2=null;
+                    operation=' ';
   
                 }
                   }
@@ -961,6 +1061,7 @@ private class Calculation implements ActionListener,KeyListener{
                     inv2=false;
                     str1=Double.toString(answer);
                     str2=null;
+                    operation=' ';
              }
         }
 
